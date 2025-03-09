@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Band</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            background: linear-gradient(to right, blue, lightblue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .btn {
+            display: block;
+            width: 250px;
+            margin: 20px auto;
+            padding: 15px;
+            background: linear-gradient(to right, red, darkred);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, darkred, red);
+        }
+        .btn-purple {
+            background: linear-gradient(to right, purple, violet);
+        }
+        .btn-purple:hover {
+            background: linear-gradient(to right, violet, purple);
+        }
+        .btn-green {
+            background: linear-gradient(to right, green, darkgreen);
+        }
+        .btn-green:hover {
+            background: linear-gradient(to right, darkgreen, green);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            background: linear-gradient(to right, purple, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .spacer {
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CHALAH AND SULA PROGRAMMER</h1>
+
+    <div class="spacer"></div>
+    <button class="btn" onclick="sendEmail(1)">Number Band 1</button>
+    <button class="btn" onclick="sendEmail(2)">Number Band 2</button>
+    <button class="btn" onclick="sendEmail(3)">Number Band 3</button>
+    <button class="btn" onclick="sendEmail(4)">Number Band 4</button>
+    <button class="btn" onclick="sendEmail(5)">Number Band 5</button>
+
+    <div class="spacer"></div>
+    <button class="btn btn-purple" onclick="Please enter vip 🔐 ()">Number Band VIP</button>
+
+    <div class="spacer"></div>
+    <button class="btn btn-green" onclick="sendWhatsApp(1)">GET YOUR KEY 1</button>
+    <button class="btn btn-green" onclick="sendWhatsApp(2)">GET YOUR KEY 2</button>
+
+    <div class="footer">
+        ( Tanq for support sula md owner and website make CHALAH md owner )
+    </div>
+
+    <script>
+        function sendEmail(band) {
+            let messages = {
+                1: "Hello I had my device lost recently and I need my WhatsApp account to be deactivated until I buy a New Sim! My number is +94 ()",
+                2: "Hello, I lost my documents along with my cell phone and my SIM card. So I need you to deactivate my number immediately, I was hacked, I'm afraid that someone can get into my WhatsApp account because it has important information about me, the number is: +94 ()",
+                3: "I had my cell phone stolen along with my information and I need my WhatsApp number to be deactivated! My number is +94 ()",
+                4: "Hello, I'm having problems with users of the platform sending unwanted messages to my number. I already spammed WhatsApp but the person still continues. Their number is +94 ()",
+                5: "Hello, I'm Rodolfo, I need your help. My cell phone was stolen and along with it was my chip with WhatsApp. I don't want it to mess with my personal things, such as things from my company and plans. I want my number to be deactivated! Until I can recover the SIM or try to recover my cell phone! Number: +94 ()"
+            };
+
+            let emailBody = encodeURIComponent(messages[band]);
+            window.location.href = `mailto:support@whatsapp.com?subject=Deactivate My WhatsApp&body=${emailBody}`;
+        }
+
+        function enterVIPKey() {
+            let password = prompt("Enter your key:");
+            if (password === "0000") {
+                let vipMessage = "مرحبًا ، لقد تعرضت لحادث مؤسف أن شخصًا ما سرق هاتفي المحمول لذا لم يعد بإمكاني استخدام حساب WhatsApp الخاص بي. الرجاء إلغاء تنشيط حسابي لأنه لم يعد مستخدمًا ، شكرًا لك. رقمي هو +94 ()";
+                let emailBody = encodeURIComponent(vipMessage);
+                window.location.href = `mailto:support@whatsapp.com?subject=Deactivate My WhatsApp&body=${emailBody}`;
+            } else {
+                alert("Invalid key! Please try again.");
+            }
+        }
+
+        function sendWhatsApp(option) {
+            let message = encodeURIComponent("*මගේ KEY එක දියම්කෝ සුද්දා*");
+            let number = option === 1 ? "94776938009" : "94760663483";
+            window.location.href = `https://wa.me/${number}?text=${message}`;
+        }
+    </script>
+
+</body>
+</html>
