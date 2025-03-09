@@ -41,9 +41,32 @@
         }
         .btn-purple {
             background: linear-gradient(to right, purple, violet);
+            position: relative;
+            overflow: hidden;
         }
         .btn-purple:hover {
             background: linear-gradient(to right, violet, purple);
+        }
+        /* ⚡ Lightning Effect */
+        .btn-purple::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(white, transparent, transparent);
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .btn-purple.clicked::after {
+            opacity: 1;
+            animation: lightning 0.3s ease-in-out;
+        }
+        @keyframes lightning {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0; }
         }
         .btn-green {
             background: linear-gradient(to right, green, darkgreen);
@@ -75,7 +98,7 @@
     <button class="btn" onclick="sendEmail(5)">Number Band 5</button>
 
     <div class="spacer"></div>
-    <button class="btn btn-purple" onclick="Please enter vip 🔐 ()">Number Band VIP</button>
+    <button class="btn btn-purple" onclick="enterVIPKey(this)">Number Band VIP</button>
 
     <div class="spacer"></div>
     <button class="btn btn-green" onclick="sendWhatsApp(1)">GET YOUR KEY 1</button>
@@ -99,7 +122,10 @@
             window.location.href = `mailto:support@whatsapp.com?subject=Deactivate My WhatsApp&body=${emailBody}`;
         }
 
-        function enterVIPKey() {
+        function enterVIPKey(btn) {
+            btn.classList.add("clicked"); // Add lightning effect
+            setTimeout(() => btn.classList.remove("clicked"), 300); // Remove after animation
+
             let password = prompt("Enter your key:");
             if (password === "0000") {
                 let vipMessage = "مرحبًا ، لقد تعرضت لحادث مؤسف أن شخصًا ما سرق هاتفي المحمول لذا لم يعد بإمكاني استخدام حساب WhatsApp الخاص بي. الرجاء إلغاء تنشيط حسابي لأنه لم يعد مستخدمًا ، شكرًا لك. رقمي هو +94 ()";
